@@ -1,6 +1,10 @@
-from flask import Flask
-app = Flask(__name__)
+import http.server
+import socketserver
 
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
+PORT = 8069
+
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("serving at port", PORT)
+    httpd.serve_forever()
