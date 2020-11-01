@@ -1,10 +1,10 @@
 import http.server
 import socketserver
 
-PORT = 8069
+PORT = randrange(8000, 8999, 2)
 
 Handler = http.server.SimpleHTTPRequestHandler
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("serving at port", PORT)
+    print("http://18.223.24.247" + str(PORT))
     httpd.serve_forever()
