@@ -2,7 +2,7 @@ import http.server
 import socketserver
 import random
 
-PORT = random.randrange(8000, 8999, 2)
+PORT = 8069
 print("ill be alive at http://18.223.24.247" + str(PORT))
 
 Handler = http.server.SimpleHTTPRequestHandler
