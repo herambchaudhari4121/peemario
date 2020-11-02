@@ -21,6 +21,7 @@ import asyncio
 import schedule
 import time
 import random
+import string
 import discord
 from discord.ext import commands
 # consumer_key = os.environ["consumer_key"]
@@ -112,10 +113,10 @@ async def dl(ctx, arg):
     best.download(filepath="video." + best.extension, quiet=False)
     fartypants = "video." + best.extension
     await ctx.send(video.title, file=discord.File(fartypants))
-    os.remove('video.mp4')
 
 @bot.command(brief='Downloads a YouTube video with custom bitrate ("awesomify")')
 async def awesomify(ctx, arg1, arg2, arg3):
+    random = ''.join(random.choice(letters) for i in range(10)) 
     video = pafy.new(arg1)
     thepoopbaby = '```\n' + 'Video title: ' + video.title + '\nViews: ' + str(
         video.viewcount) + '\nUploaded by: ' + video.author + '```'
