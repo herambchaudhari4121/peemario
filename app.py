@@ -23,11 +23,11 @@ import time
 import random
 import discord
 from discord.ext import commands
-consumer_key = os.environ["consumer_key"]
-consumer_secret = os.environ["consumer_secret"]
-access_token_key = os.environ["access_token_key"]
-access_token_secret = os.environ["access_token_secret"]
-api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
+# consumer_key = os.environ["consumer_key"]
+# consumer_secret = os.environ["consumer_secret"]
+# access_token_key = os.environ["access_token_key"]
+# access_token_secret = os.environ["access_token_secret"]
+# api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
 token = os.environ['BOT_TOKEN']
 bot = commands.Bot(command_prefix='n!')
 prefix = 'n!'
@@ -180,75 +180,4 @@ async def guilds(ctx):
     for guild in bot.guilds:
         guildz.append(guild.name)
     await ctx.send('```\n' + '\n'.join(guildz) + '```')
-@bot.command(brief='tweeter')
-async def tweet(ctx, arg):
-    jsony = {'status':arg}
-    r = api.request('statuses/update', jsony)
-    erwe = r.text
-    internationalassday = json.loads(erwe)
-    await ctx.send('https://twitter.com/i/status/' + internationalassday['id_str'])
-@bot.command(brief='listen', aliases=['changelistener'])
-async def listen(ctx, arg):
-    global heylisten
-    await ctx.send('was listening to ' + '``' + heylisten + '``')
-    heylisten = arg
-    await ctx.send('Now listening to ' + '``' + heylisten + '``')
-@bot.command(brief='retweet')
-async def retweet(ctx, id):
-    jsony = {'id':id}
-    r = api.request('statuses/retweet/' + id, jsony)
-    erwe = r.text
-    internationalassday = json.loads(erwe)
-    await ctx.send('https://twitter.com/i/status/' + internationalassday['id_str'])
-@bot.command(brief='quote retweet')
-async def qretweet(ctx, id, qt):
-    fartm4rio = qt + ' https://twitter.com/i/status/' + id
-    jsony = {'status':fartm4rio}
-    r = api.request('statuses/update', jsony)
-    erwe = r.text
-    internationalassday = json.loads(erwe)
-    await ctx.send('https://twitter.com/i/status/' + internationalassday['id_str'])
-@bot.command(brief='tweeter with media')
-async def mediatweet(ctx, arg):
-    attachment = ctx.message.attachments[0]
-    img_data = requests.get(attachment.url).content
-    with open('image', 'wb+') as handler:
-        handler.write(img_data)
-    with open('image', 'rb') as handler:
-        data = handler.read()
-    jsony = {'status':arg}
-    r = api.request('statuses/update_with_media', jsony, {'media[]':data})
-    erwe = r.text
-    internationalassday = json.loads(erwe)
-    await ctx.send('https://twitter.com/i/status/' + internationalassday['id_str'])
-    os.remove('image')
-@bot.command(brief='like a twitter p0st')
-async def like(ctx, id):
-    jsony = {'id':id}
-    r = api.request('favorites/create', jsony)
-    erwe = r.text
-    internationalassday = json.loads(erwe)
-    await ctx.send('i liked it')
-@bot.command(brief='unlike a twitter p0st')
-async def unlike(ctx, id):
-    jsony = {'id':id}
-    r = api.request('favorites/destroy', jsony)
-    erwe = r.text
-    internationalassday = json.loads(erwe)
-    await ctx.send('i unliked it')
-@bot.command(brief='change twitter avatar')
-async def avatar(ctx):
-    attachment = ctx.message.attachments[0]
-    img_data = requests.get(attachment.url).content
-    with open('image', 'wb+') as handler:
-        handler.write(img_data)
-    with open('image', 'rb') as handler:
-        data = handler.read()
-        encoded_string = base64.b64encode(data)
-    jsony = {'image':encoded_string}
-    r = api.request('account/update_profile_image', jsony)
-    erwe = r.text
-    internationalassday = json.loads(erwe)
-    await ctx.send('i did it')
-    os.remove('image')
 bot.run(token)
