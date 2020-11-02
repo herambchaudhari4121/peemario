@@ -104,19 +104,20 @@ async def on_command_error(ctx, error):
     await ctx.channel.send("Free error for you! Contact bot owner if confused\n```" + str(error) + "```")
 @bot.command(brief='Download a video from YouTube.')
 async def dl(ctx, arg):
+    random = ''.join(random.choice(letters) for i in range(10)) 
     video = pafy.new(arg)
     thepoopbaby = '```\n' + 'Video title: ' + video.title + '\nViews: ' + str(
         video.viewcount) + '\nUploaded by: ' + video.author + '```'
     await ctx.send(thepoopbaby)
     log('hello! ' + arg)
     best = video.getbest()
-    best.download(filepath="video." + best.extension, quiet=False)
-    fartypants = "video." + best.extension
-    await ctx.send(video.title, file=discord.File(fartypants))
+    fuckah = random + "."
+    best.download(filepath="ytdl/" + fuckah + best.extension, quiet=False)
+    fartypants = fuckah + best.extension
+    await ctx.send('http://18.223.24.247:8069/ytdl/' + fartypants)
 
 @bot.command(brief='Downloads a YouTube video with custom bitrate ("awesomify")')
 async def awesomify(ctx, arg1, arg2, arg3):
-    random = ''.join(random.choice(letters) for i in range(10)) 
     video = pafy.new(arg1)
     thepoopbaby = '```\n' + 'Video title: ' + video.title + '\nViews: ' + str(
         video.viewcount) + '\nUploaded by: ' + video.author + '```'
