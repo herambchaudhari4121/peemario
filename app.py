@@ -104,14 +104,14 @@ async def on_command_error(ctx, error):
     await ctx.channel.send("Free error for you! Contact bot owner if confused\n```" + str(error) + "```")
 @bot.command(brief='Download a video from YouTube.')
 async def dl(ctx, arg):
-    random = ''.join(random.choice(letters) for i in range(10)) 
+    yeezy = ''.join(random.choice(letters) for i in range(10)) 
     video = pafy.new(arg)
     thepoopbaby = '```\n' + 'Video title: ' + video.title + '\nViews: ' + str(
         video.viewcount) + '\nUploaded by: ' + video.author + '```'
     await ctx.send(thepoopbaby)
     log('hello! ' + arg)
     best = video.getbest()
-    fuckah = random + "."
+    fuckah = yeezy + "."
     best.download(filepath="ytdl/" + fuckah + best.extension, quiet=False)
     fartypants = fuckah + best.extension
     await ctx.send('http://18.223.24.247:8069/ytdl/' + fartypants)
