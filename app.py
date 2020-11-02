@@ -104,6 +104,7 @@ async def on_command_error(ctx, error):
     await ctx.channel.send("Free error for you! Contact bot owner if confused\n```" + str(error) + "```")
 @bot.command(brief='Download a video from YouTube.')
 async def dl(ctx, arg):
+    letters = string.ascii_lowercase
     yeezy = ''.join(random.choice(letters) for i in range(10)) 
     video = pafy.new(arg)
     thepoopbaby = '```\n' + 'Video title: ' + video.title + '\nViews: ' + str(
