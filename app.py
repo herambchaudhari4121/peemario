@@ -158,7 +158,8 @@ async def reddit(ctx, arg):
     fgteev = Subreddit(arg)
     fgteev.get_random()
     url = fgteev.url
-    await ctx.send(url)
+    texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + fgteev.upvotes
+    await ctx.send(texty + '\n' + url)
 
 
 @bot.command(brief='Figlet art',
