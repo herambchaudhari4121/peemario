@@ -158,7 +158,7 @@ async def reddit(ctx, arg):
     fgteev = Subreddit(arg)
     fgteev.get_random()
     url = fgteev.url
-    texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + fgteev.upvotes
+    texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + str(fgteev.upvotes)
     await ctx.send(texty + '\n' + url)
 
 
