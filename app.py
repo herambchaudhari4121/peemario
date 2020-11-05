@@ -199,6 +199,6 @@ async def guilds(ctx):
 @bot.command(brief='loopy boi.')
 async def loopies(ctx, arg, arg2):
     if (ctx.author.id == 511989134043381760) or (ctx.author.id == 258401707556470785):
-        for x in range(arg2):
-            ctx.send(arg)
+        for x in range(int(arg)):
+            ctx.send(arg2)
 bot.run(token)
