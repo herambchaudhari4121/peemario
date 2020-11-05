@@ -180,6 +180,7 @@ async def exec(ctx, arg):
         output = exe.read()
         print(output)
         try:
+            if
             await ctx.send('```\n' + output + '```')
         except discord.HTTPException:
             print('Farto Mode.')
@@ -199,6 +200,9 @@ async def guilds(ctx):
 @bot.command(brief='loopy boi.')
 async def loopies(ctx, arg, arg2):
     if (ctx.author.id == 511989134043381760) or (ctx.author.id == 258401707556470785):
-        for x in range(int(arg)):
+        lpoop = int(arg)
+        for x in range(lpoop):
             ctx.send(arg2)
+    else:
+        ctx.send('NO NO NO NO NO. BOI.')
 bot.run(token)
