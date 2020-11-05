@@ -180,7 +180,6 @@ async def exec(ctx, arg):
         output = exe.read()
         print(output)
         try:
-            if
             await ctx.send('```\n' + output + '```')
         except discord.HTTPException:
             print('Farto Mode.')
