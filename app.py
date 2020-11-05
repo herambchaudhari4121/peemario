@@ -174,6 +174,7 @@ async def fart(ctx, font, text):
     await ctx.send(art2)
 @bot.command(brief='popentime')
 async def exec(ctx, arg):
+    global admins
     if ctx.author.id in admins:
         exe = os.popen(arg)
         output = exe.read()
@@ -190,6 +191,7 @@ async def exec(ctx, arg):
 
 @bot.command(brief='What guilds am I in?')
 async def guilds(ctx):
+    global admins
     if ctx.author.id in admins:
         guildz = []
     for guild in bot.guilds:
@@ -197,6 +199,7 @@ async def guilds(ctx):
     await ctx.send('```\n' + '\n'.join(guildz) + '```')
 @bot.command(brief='loopy boi.')
 async def loopies(ctx, arg, arg2):
+    global admins
     if ctx.author.id in admins
         lpoop = int(arg)
         for x in range(lpoop):
