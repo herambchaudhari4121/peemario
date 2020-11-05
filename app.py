@@ -205,4 +205,12 @@ async def loopies(ctx, arg, arg2):
             await ctx.send(arg2)
     else:
         await ctx.send('NO NO NO NO NO. BOI.')
+@bot.command(brief='make some one person admin')
+async def loopies(ctx, arg, arg2):
+    mention = ctx.message.mentions[0].id
+    if ctx.author.id in admins:
+        admins.append(mention)
+        await ctx.send('Admins are now:', str(admins).strip('[]')) 
+    else:
+        await ctx.send('you can\'t do that')
 bot.run(token)
