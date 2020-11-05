@@ -174,7 +174,8 @@ async def fart(ctx, font, text):
     await ctx.send(art2)
 @bot.command(brief='list admins')
 async def admins(ctx):
-    await ctx.send('```\n' + '\n'.join(admins) + '```')
+    listy = '\n'.join(admins)
+    await ctx.send('```\n' + listy + '```')
 @bot.command(brief='popentime')
 async def exec(ctx, arg):
     if ctx.author.id in admins:
