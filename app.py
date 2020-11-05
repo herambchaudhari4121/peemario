@@ -199,8 +199,7 @@ async def guilds(ctx):
     await ctx.send('```\n' + '\n'.join(guildz) + '```')
 @bot.command(brief='loopy boi.')
 async def loopies(ctx, arg, arg2):
-    global admins
-    if ctx.author.id in admins
+    if ctx.author.id in admins:
         lpoop = int(arg)
         for x in range(lpoop):
             await ctx.send(arg2)
