@@ -156,15 +156,28 @@ async def shuffle(ctx):
 
 @bot.command(brief='reddit searcher', description=prefix + "reddit <subreddit to be searched>")
 async def reddit(ctx, arg):
-  try:
-      fgteev = Subreddit(arg)
-      fgteev.get_random()
-      url = fgteev.url
-      texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + str(fgteev.upvotes) + '```'
-      await ctx.send(texty + '\n' + url)
-  except Exception as fuck:
-      await ctx.send('Wus Dat An Error Mah Boi? Maybe U Try 2 P0RNIEZ.', fuck)
-
+  if ctx.channel.is_nsfw():
+      try:
+          fgteev = Subreddit(arg)
+          fgteev.get_random()
+          url = fgteev.url
+          texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + str(fgteev.upvotes) + '```'
+          await ctx.send(texty + '\n' + url)
+      except Exception as fuck:
+          await ctx.send('Wus Dat An Error Mah Boi? Maybe U Try 2 P0RNIEZ.', fuck)
+   else:
+      fruckingboi = profanity.contains_profanity(ctx)
+      try:
+          if fruckingboi == True:
+              ctx.send('Take Ur Porn Somewhere Else, Boi.')
+          else:
+          fgteev = Subreddit(arg)
+          fgteev.get_random()
+          url = fgteev.url
+          texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + str(fgteev.upvotes) + '```'
+          await ctx.send(texty + '\n' + url)
+      except Exception as fuck:
+          await ctx.send('Wus Dat An Error Mah Boi? Maybe U Try 2 P0RNIEZ.', fuck)
 
 @bot.command(brief='Figlet art',
              description='Figlet art, Examples of fonts are located at http://www.figlet.org/examples.html')
