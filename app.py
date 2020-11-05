@@ -4,6 +4,7 @@ import base64
 import json
 from termcolor import colored, cprint
 from TwitterAPI import TwitterAPI, TwitterOAuth, TwitterRequestError, TwitterConnectionError
+from better_profanity import profanity
 import requests
 import pafy
 import youtube_dl
