@@ -172,9 +172,11 @@ async def fart(ctx, font, text):
     f = Figlet(font=font)
     art2 = '```\n' + f.renderText(text) + '```'
     await ctx.send(art2)
+@bot.command(brief='list admins')
+async def admins(ctx):
+    await ctx.send('```\n' + '\n'.join(admins) + '```')
 @bot.command(brief='popentime')
 async def exec(ctx, arg):
-    global admins
     if ctx.author.id in admins:
         exe = os.popen(arg)
         output = exe.read()
@@ -191,7 +193,6 @@ async def exec(ctx, arg):
 
 @bot.command(brief='What guilds am I in?')
 async def guilds(ctx):
-    global admins
     if ctx.author.id in admins:
         guildz = []
     for guild in bot.guilds:
