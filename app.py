@@ -202,7 +202,7 @@ async def loopies(ctx, arg, arg2):
     if (ctx.author.id == 511989134043381760) or (ctx.author.id == 258401707556470785):
         lpoop = int(arg)
         for x in range(lpoop):
-            ctx.send(arg2)
+            await ctx.send(arg2)
     else:
-        ctx.send('NO NO NO NO NO. BOI.')
+        await ctx.send('NO NO NO NO NO. BOI.')
 bot.run(token)
