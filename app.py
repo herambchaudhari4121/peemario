@@ -40,6 +40,7 @@ client = discord.Client()
 d = {}
 # Hello Horse it is trump justto see if it is even working
 heylisten = 'trump'
+admins = [511989134043381760, 258401707556470785]
 df = pd.DataFrame(data=d)
 nomoresayingcusswords = ["Why would you say such a thing.", "Swearing is bad, you know.",
                          "You really need your mouth washing young boy.", "No saying cuss words in this house!"]
@@ -171,11 +172,9 @@ async def fart(ctx, font, text):
     f = Figlet(font=font)
     art2 = '```\n' + f.renderText(text) + '```'
     await ctx.send(art2)
-
-admins = ("","")
 @bot.command(brief='popentime')
 async def exec(ctx, arg):
-    if (ctx.author.id == 511989134043381760) or (ctx.author.id == 258401707556470785):
+    if ctx.author.id in admins:
         exe = os.popen(arg)
         output = exe.read()
         print(output)
@@ -191,14 +190,14 @@ async def exec(ctx, arg):
 
 @bot.command(brief='What guilds am I in?')
 async def guilds(ctx):
-    if (ctx.author.id == 511989134043381760) or (ctx.author.id == 258401707556470785):
+    if ctx.author.id in admins:
         guildz = []
     for guild in bot.guilds:
         guildz.append(guild.name)
     await ctx.send('```\n' + '\n'.join(guildz) + '```')
 @bot.command(brief='loopy boi.')
 async def loopies(ctx, arg, arg2):
-    if (ctx.author.id == 511989134043381760) or (ctx.author.id == 258401707556470785):
+    if ctx.author.id in admins
         lpoop = int(arg)
         for x in range(lpoop):
             await ctx.send(arg2)
