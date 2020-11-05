@@ -164,8 +164,8 @@ async def reddit(ctx, arg):
           url = fgteev.url
           texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + str(fgteev.upvotes) + '```'
           await ctx.send(texty + '\n' + url)
-          except Exception as fuck:
-              await ctx.send('Wus Dat An Error Mah Boi? Maybe U Try 2 P0RNIEZ.', fuck)
+      except Exception as fuck:
+          await ctx.send('Wus Dat An Error Mah Boi? Maybe U Try 2 P0RNIEZ.', fuck)
       else:
           fruckingboi = profanity.contains_profanity(ctx)
           try:
