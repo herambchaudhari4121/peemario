@@ -6,7 +6,11 @@ from termcolor import colored, cprint
 from TwitterAPI import TwitterAPI, TwitterOAuth, TwitterRequestError, TwitterConnectionError
 from better_profanity import profanity
 import requests
-from mmllib import *
+import mmllib.cmds
+import mmllib.mml
+import mmllib.playlist
+import mmllib.parser
+import mmllib.musicxml
 import pafy
 import youtube_dl
 from random_word import RandomWords
