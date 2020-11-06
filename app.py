@@ -228,11 +228,7 @@ async def admin(ctx, mention):
     else:
         await ctx.send('you can\'t do that')
 @bot.command(brief='mmly boi')
-async def mammal(ctx, mention):
-    mention = ctx.message.mentions[0].id
-    if ctx.author.id in admins:
-        admins.append(mention)
-        await ctx.send('Admins are now: ' + str(admins).strip('[]')) 
-    else:
-        await ctx.send('you can\'t do that')
+async def mammal(ctx, mml):
+    parse = mmllib.mml(mml)
+    await ctx.send(parse) 
 bot.run(token)
