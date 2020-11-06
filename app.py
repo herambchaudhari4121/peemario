@@ -154,32 +154,31 @@ async def shuffle(ctx):
     else:
         os.remove('cat.jpg')
 
-
-@bot.command(brief='reddit searcher', description=prefix + "reddit <subreddit to be searched>")
-async def reddit(ctx, arg):
-  if ctx.channel.is_nsfw():
-      try:
-          fgteev = Subreddit(arg)
-          fgteev.get_random()
-          url = fgteev.url
-          texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + str(fgteev.upvotes) + '```'
-          await ctx.send(texty + '\n' + url)
-      except Exception as fuck:
-          await ctx.send('Wus Dat An Error Mah Boi? Maybe U Try 2 P0RNIEZ.', fuck)
-  else:
-       fruckingboi = profanity.contains_profanity(ctx)
-       if fruckingboi == True:
-           ctx.send('Take Ur Porn Somewhere Else, Boi.')
-       else:
-           try:
-               fgteev = Subreddit(arg)
-               fgteev.get_random()
-               url = fgteev.url
-               texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + str(fgteev.upvotes) + '```'
-               await ctx.send(texty + '\n' + url)
-           except Exception as fuck:
-               await ctx.send('Wus Dat An Error Mah Boi? Maybe U Try 2 P0RNIEZ.', fuck)
-
+# noted until i find a way to make it work
+# @bot.command(brief='reddit searcher', description=prefix + "reddit <subreddit to be searched>")
+# async def reddit(ctx, arg):
+#  if ctx.channel.is_nsfw():
+#      try:
+#          fgteev = Subreddit(arg)
+#          fgteev.get_random()
+#          url = fgteev.url
+#          texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + str(fgteev.upvotes) + '```'
+#          await ctx.send(texty + '\n' + url)
+#      except Exception as fuck:
+#          await ctx.send('Wus Dat An Error Mah Boi? Maybe U Try 2 P0RNIEZ.', fuck)
+#  else:
+#       fruckingboi = profanity.contains_profanity(ctx)
+#       if fruckingboi == True:
+#           ctx.send('Take Ur Porn Somewhere Else, Boi.')
+#       else:
+#           try:
+#               fgteev = Subreddit(arg)
+#               fgteev.get_random()
+#               url = fgteev.url
+#               texty = '```\n' + 'Post title: ' + fgteev.title + '\nUpvotes: ' + str(fgteev.upvotes) + '```'
+#               await ctx.send(texty + '\n' + url)
+#           except Exception as fuck:
+#               await ctx.send('Wus Dat An Error Mah Boi? Maybe U Try 2 P0RNIEZ.', fuck)
 @bot.command(brief='Figlet art',
              description='Figlet art, Examples of fonts are located at http://www.figlet.org/examples.html')
 async def fart(ctx, font, text):
@@ -204,8 +203,6 @@ async def exec(ctx, arg):
                 out.write(output)
             await ctx.send(file=discord.File('output.txt'))
             os.remove('output.txt')
-
-
 @bot.command(brief='What guilds am I in?')
 async def guilds(ctx):
     if ctx.author.id in admins:
