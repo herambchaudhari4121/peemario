@@ -228,6 +228,6 @@ async def admin(ctx):
         await ctx.send('you can\'t do that')
 @bot.command(brief='stupid')
 async def mammal(ctx, arg):
-    parse = mml(arg)
+    parse = mmllib.mml(arg)
     await ctx.send(parse)
 bot.run(token)
