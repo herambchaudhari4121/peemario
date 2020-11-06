@@ -7,10 +7,6 @@ from TwitterAPI import TwitterAPI, TwitterOAuth, TwitterRequestError, TwitterCon
 from better_profanity import profanity
 import requests
 import mmllib.cmds
-import mmllib.mml
-import mmllib.playlist
-import mmllib.parser
-import mmllib.musicxml
 import pafy
 import youtube_dl
 from random_word import RandomWords
