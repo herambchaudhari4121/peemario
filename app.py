@@ -154,7 +154,6 @@ async def shuffle(ctx):
         await ctx.send('EPIC FAIL!! try later')
     else:
         os.remove('cat.jpg')
-
 # noted until i find a way to make it work
 # @bot.command(brief='reddit searcher', description=prefix + "reddit <subreddit to be searched>")
 # async def reddit(ctx, arg):
@@ -227,8 +226,8 @@ async def admin(ctx, mention):
         await ctx.send('Admins are now: ' + str(admins).strip('[]')) 
     else:
         await ctx.send('you can\'t do that')
-@bot.command(brief='mmly boi')
-async def mammal(ctx, mml):
-    parse = mmllib.mml(mml)
-    await ctx.send(parse) 
+@bot.command(brief='stupid')
+async def mammal(ctx, arg):
+    parse = mmllib.mml(arg)
+    await ctx.send(parse)
 bot.run(token)
