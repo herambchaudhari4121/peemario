@@ -6,7 +6,7 @@ from termcolor import colored, cprint
 from TwitterAPI import TwitterAPI, TwitterOAuth, TwitterRequestError, TwitterConnectionError
 from better_profanity import profanity
 import requests
-import mmllib
+from mmllib import *
 import pafy
 import youtube_dl
 from random_word import RandomWords
@@ -219,7 +219,7 @@ async def loopies(ctx, arg, arg2):
     else:
         await ctx.send('NO NO NO NO NO. BOI.')
 @bot.command(brief='make some one person admin')
-async def admin(ctx, mention):
+async def admin(ctx):
     mention = ctx.message.mentions[0].id
     if ctx.author.id in admins:
         admins.append(mention)
@@ -228,6 +228,6 @@ async def admin(ctx, mention):
         await ctx.send('you can\'t do that')
 @bot.command(brief='stupid')
 async def mammal(ctx, arg):
-    parse = mmllib.mml(arg)
+    parse = mml(arg)
     await ctx.send(parse)
 bot.run(token)
